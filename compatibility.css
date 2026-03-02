@@ -1,0 +1,80 @@
+:root{
+  --bg:transparent;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --radius:12px;
+  --shadow: 0 6px 20px rgba(20,24,40,0.06);
+  --accent-good: #06b6d4;
+  --accent-excellent: #10b981;
+  --accent-fair: #f59e0b;
+  --accent-poor: #ef4444;
+}
+
+/* Container */
+.compat-container{max-width:920px;margin:18px auto;padding:12px}
+.compat-container h2{font-size:1.4rem;margin-bottom:10px}
+
+/* Grid */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+
+/* Card */
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:stretch;
+  min-height:110px;
+}
+
+.header{display:flex;align-items:center;justify-content:space-between}
+.title{font-weight:600;font-size:0.98rem}
+.small{font-size:0.85rem;color:var(--muted)}
+
+.value-row{display:flex;align-items:center;gap:12px}
+.value{
+  font-weight:700;font-size:1.25rem;
+  min-width:60px;text-align:left;
+}
+.category{padding:6px 8px;border-radius:999px;font-weight:600;font-size:0.78rem;color:#fff}
+
+/* progress bar */
+.progress-rail{
+  height:12px;background:#eef2ff;border-radius:999px;overflow:hidden;
+  margin-top:6px;
+}
+.progress-fill{
+  height:100%;width:0%;border-radius:999px;
+  transform-origin:left center;
+  transition:width 900ms cubic-bezier(.2,.9,.2,1);
+}
+
+/* category colors */
+.category.excellent{background:var(--accent-excellent)}
+.progress-fill.excellent{background:linear-gradient(90deg,var(--accent-excellent),#34d399)}
+
+.category.good{background:var(--accent-good)}
+.progress-fill.good{background:linear-gradient(90deg,var(--accent-good),#3dd4e4)}
+
+.category.fair{background:var(--accent-fair)}
+.progress-fill.fair{background:linear-gradient(90deg,var(--accent-fair),#fbbf24)}
+
+.category.poor{background:var(--accent-poor)}
+.progress-fill.poor{background:linear-gradient(90deg,var(--accent-poor),#fb7185)}
+
+.hint{font-size:0.8rem;color:var(--muted)}
+.legend{margin-top:18px;padding:12px;background:rgba(255,255,255,0.6);border-radius:10px}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:8px;vertical-align:middle}
+.dot.excellent{background:var(--accent-excellent)}
+.dot.good{background:var(--accent-good)}
+.dot.fair{background:var(--accent-fair)}
+.dot.poor{background:var(--accent-poor)}
+
+/* Responsive tweaks */
+@media (max-width:520px){
+  .value{font-size:1.05rem}
+  .card{padding:12px}
+}
